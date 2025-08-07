@@ -20,7 +20,12 @@ app.add_middleware(
 
 
 @app.post("/itinerary")
-def generate_itinerary(location, days, month):
+async def generate_itinerary(request: Request):
+    body = await request.json()
+    days = body["days"]
+    location = body["location"]
+    month = body["month"]
+
     messages = [
         {"role": "system", "content": "You are a helpful Travel assistant."},
         {
@@ -45,7 +50,7 @@ def generate_itinerary(location, days, month):
 
 
 @app.post("/pdf")
-def create_pdf(itinerary):
+async def create_pdf(itinerary):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
