@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 import ollama
 from fpdf import FPDF
+import os
 from io import BytesIO
 
 # Load environment variables
@@ -31,6 +32,11 @@ class ItineraryRequest(BaseModel):
 
 class PDFRequest(BaseModel):
     itinerary: str
+
+
+@app.get("/")
+def root():
+    return {"status": "ok"}
 
 
 @app.post("/itinerary")
@@ -67,7 +73,7 @@ async def create_pdf(data: PDFRequest):
         pdf = FPDF()
         pdf.add_page()
         pdf.set_font("Arial", size=12)
-        pdf.multi_cell(0, 10, data.itinerary)
+        pdf.multi_cell(0, 10, data.itinerary.strip())
 
         # Return PDF in-memory
         pdf_bytes = pdf.output(dest="S").encode("latin-1")
