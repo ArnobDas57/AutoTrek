@@ -36,7 +36,7 @@ export default function ItineraryForm({
   return (
     <form
       onSubmit={submit}
-      className="bg-gray-800 p-6 rounded-lg shadow-lg space-y-4"
+      className="bg-gray-800 p-9 rounded-lg shadow-lg space-y-4"
     >
       <label className="block relative">
         <input

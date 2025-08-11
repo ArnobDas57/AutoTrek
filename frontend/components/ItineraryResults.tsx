@@ -2,15 +2,17 @@
 import React from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
+interface ItineraryResultsProps {
+  itinerary: string | null;
+  loading: boolean;
+  onDownload: () => void;
+}
+
 export default function ItineraryResults({
   loading,
   itinerary,
   onDownload,
-}: {
-  loading: boolean;
-  itinerary: string | null;
-  onDownload: () => void;
-}) {
+}: ItineraryResultsProps) {
   if (loading) return <LoadingSpinner />;
   if (!itinerary) return null;
 
