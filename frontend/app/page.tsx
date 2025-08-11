@@ -1,5 +1,7 @@
+"use client";
+
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { Footer } from "../components/Footer";
 import ItineraryForm from "../components/ItineraryForm";
 import ItineraryResults from "../components/ItineraryResults";
 import { useState } from "react";
@@ -10,7 +12,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 to-yellow-100">
+    <div className="min-h-screen flex flex-col ">
       <div
         className="absolute inset-0 z-0"
         style={{
