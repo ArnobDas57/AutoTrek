@@ -34,7 +34,15 @@ export default function Home() {
         <div className="w-full max-w-4xl bg-white/70 backdrop-blur-lg rounded-2xl shadow-lg p-6 md:p-10">
           <ItineraryForm setItinerary={setItinerary} setLoading={setLoading} />
           <div className="mt-8">
-            <ItineraryResults itinerary={itinerary} loading={loading} />
+            <ItineraryResults
+              itinerary={itinerary}
+              loading={loading}
+              onDownload={() => {
+                if (itinerary) {
+                  console.log("Downloading itinerary:", itinerary);
+                }
+              }}
+            />
           </div>
         </div>
       </main>
