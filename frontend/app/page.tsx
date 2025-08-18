@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "../components/Header";
-import { Footer } from "../components/Footer";
+import Footer from "../components/Footer";
 import ItineraryForm from "../components/ItineraryForm";
 import ItineraryResults from "../components/ItineraryResults";
 import { useState } from "react";
