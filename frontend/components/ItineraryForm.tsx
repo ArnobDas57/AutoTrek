@@ -27,7 +27,7 @@ export default function ItineraryForm({
       const data = await res.json();
       setItinerary(data.itinerary);
     } catch {
-      alert("Sorry, something went wrong.");
+      alert("Sorry, something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -48,7 +48,7 @@ export default function ItineraryForm({
           required
         />
         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-indigo-400 transition-all pointer-events-none">
-          Destination (e.g. Paris)
+          Destination (e.g. Paris, Toronto, Tokyo, London)
         </span>
       </label>
 
